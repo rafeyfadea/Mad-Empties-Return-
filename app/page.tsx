@@ -69,7 +69,7 @@ export default function Home() {
               Simple as that.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/signup">
+              <Link href="/dashboard">
                 <Button variant="primary">Start returning</Button>
               </Link>
               <Link href="/how-it-works">

@@ -1,7 +1,32 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "../components/Button";
 
 export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Simulate loading
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    // Accept any email/password combination - just redirect to dashboard
+    if (email.trim()) {
+      const name = email.split("@")[0]; // Extract name from email
+      localStorage.setItem("mad_user", JSON.stringify({ name, points: 10, tier: "member", streak: 1, totalReturns: 0 }));
+      router.push("/dashboard?welcome=1");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div
       className="min-h-screen flex items-center justify-center px-6 py-16"
@@ -15,7 +40,7 @@ export default function Login() {
           <p className="text-warm-400 text-sm mt-2">Sign in to your account</p>
         </div>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="sr-only">Email</label>
             <input
@@ -23,6 +48,9 @@ export default function Login() {
               type="email"
               placeholder="Email address"
               autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="w-full bg-white border border-warm-200 rounded-input px-5 py-3.5 text-base text-warm-900 placeholder-warm-400 focus:outline-none focus:border-sage-500 transition-colors duration-150"
             />
           </div>
@@ -37,8 +65,8 @@ export default function Login() {
             />
           </div>
 
-          <Button variant="primary" fullWidth type="submit">
-            Sign in
+          <Button variant="primary" fullWidth type="submit" disabled={loading}>
+            {loading ? "Signing in..." : "Sign in"}
           </Button>
         </form>
 

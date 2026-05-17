@@ -44,11 +44,11 @@ const TIERS: { id: Tier; label: string; min: number }[] = [
 ];
 
 const DEMO_USER: UserState = {
-  name: "Alex",
+  name: "Maddy",
   points: 340,
   tier: "insider",
   streak: 7,
-  totalReturns: 11,
+  totalReturns: 25,
   rank: 23,
   isNew: false,
 };
@@ -375,7 +375,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── Points hero card ── */}
-        <div className="bg-white rounded-card shadow-card p-7">
+        <div className="rounded-card shadow-card p-7" style={{ background: "linear-gradient(135deg, #FFFFFF 0%, #FFFAF8 100%)" }}>
           {/* Number */}
           <div className="flex items-end gap-2 mb-1">
             <span
@@ -433,7 +433,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── Tier journey stepper ── */}
-        <div className="bg-cream-100 rounded-card shadow-card px-7 py-5">
+        <div className="rounded-card shadow-card px-7 py-5" style={{ background: "linear-gradient(135deg, #FBF7F3 0%, #F5F0EB 100%)" }}>
           <p className="text-warm-400 text-xs font-medium uppercase tracking-widest mb-5">
             Your journey
           </p>
@@ -542,7 +542,7 @@ export default function Dashboard() {
         </div>
 
         {/* ── Community rank ── */}
-        <div className="bg-cream-100 rounded-card shadow-card px-6 py-5 flex items-center justify-between">
+        <div className="rounded-card shadow-card px-6 py-5 flex items-center justify-between" style={{ background: "linear-gradient(135deg, #FBF7F3 0%, #F5F0EB 100%)" }}>
           <div>
             <p className="text-warm-400 text-xs font-medium uppercase tracking-widest mb-1">
               Community rank
@@ -568,7 +568,7 @@ export default function Dashboard() {
             <p className="text-warm-900 text-sm font-medium mb-3 px-0.5">
               Recent returns
             </p>
-            <div className="bg-cream-100 rounded-card shadow-card overflow-hidden">
+            <div className="rounded-card shadow-card overflow-hidden" style={{ background: "linear-gradient(135deg, #FBF7F3 0%, #F5F0EB 100%)" }}>
               {DEMO_RETURNS.map(({ date, product, points }, i) => (
                 <div
                   key={i}

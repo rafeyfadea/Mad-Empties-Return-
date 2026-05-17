@@ -149,6 +149,14 @@ export default function Signup() {
             ))}
           </div>
 
+          {/* Login guide */}
+          <div className="mt-6 p-4 rounded-card bg-mad-rose-50 border border-mad-rose-200">
+            <p className="text-warm-900 text-xs font-medium mb-2">How to login</p>
+            <p className="text-warm-700 text-xs leading-relaxed">
+              Use your email or name to login, with password <span className="font-mono font-semibold">123456</span>
+            </p>
+          </div>
+
           <p className="mt-6 text-center text-warm-400 text-sm">
             Already have one?{" "}
             <Link
